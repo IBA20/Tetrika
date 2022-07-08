@@ -16,6 +16,7 @@ while next_page:
         if attempt > 4:
             break
     else:
+        attempt = 0
         soup = BeautifulSoup(response.text, 'html.parser')
         for li in soup.find('div', attrs={'class': 'mw-category mw-category-columns'}).find_all('li'):
             res[li.string[0]] += 1
